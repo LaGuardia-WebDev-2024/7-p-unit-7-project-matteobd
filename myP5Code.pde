@@ -3,8 +3,14 @@ void setup() {
     size(400, 400); 
 }
 
+
 //🎯Variable Declarations Go Here
 var fireworkX = 20;
+
+var pokeball = 200;
+var pokesize = 200;
+var pokeline = 200
+var pokescale = 0.5;
 
 //🟢Draw Procedure - Runs on Repeat
 draw = function(){
@@ -15,11 +21,41 @@ draw = function(){
     showXYPositions();
     
   }
+scale (pokescale);
+//red top
+  fill(255, 0, 0);
+  stroke (0);
+  strokeWeight (8);
+  arc(pokeball, 200, pokesize, pokesize, PI, TWO_PI);
+  
+  //white bottom
+  fill(255); 
+  arc(pokeball, 200, pokesize, pokesize, 0, PI);
+  
+  //dividing line
+  strokeWeight(10); 
+  line(pokeball - 100, 200, pokeball + 100, pokeline);
+
+  //black button 
+  fill(0);
+  strokeWeight(10);
+  ellipse(pokeball, 200, 50, 50);
+  
+  //white button
+  fill(255);
+  ellipse(pokeball, 200, 48, 48)
   
   //🎯Animation Code Goes Here
   rect(fireworkX, 15, 10, 10);
   
-  fireworkX = fireworkX + 1;
+  
+  pokeball = pokeball + 1
+  
+  if(pokeball > 300){pokeball = 0; pokescale = 0.5} 
+  
+  pokescale = pokescale + 0.009
+
+  
 
 }
 
